@@ -1,0 +1,18 @@
+services:
+  redis:
+    image: redis:6.2.14-bookworm
+    ports:
+    - 6379:6379
+    networks:
+        - redis_network
+  redis-insight:
+    image: redis/redisinsight:latest
+    ports:
+    - 5540:5540
+    networks:
+        - redis_network
+
+networks:
+  redis_network:
+    external: true
+
